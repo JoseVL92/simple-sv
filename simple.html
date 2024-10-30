@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secret Backup</title>
+</head>
+<body>
+    <h2>Type your secret:</h2>
+    <form id="backupForm">
+        <input type="text" id="secretName" placeholder="Enter secret name"><br><br>
+        <textarea id="secretTextarea" rows="4" cols="50" placeholder="Type your secret here..."></textarea><br><br>
+        <button type="button" onclick="submitSecret()">Accept</button>
+    </form>
+
+    <script>
+        function submitSecret() {
+            var secretName = document.getElementById("secretName").value;
+            var secretText = document.getElementById("secretTextarea").value;
+            // var url = `http://api.sv.com/backup#secret-name=${encodeURIComponent(secretName)}&secret-phrase=${encodeURIComponent(secretText)}`;
+            var url = `https://sv-test.secretsvault.net/_/provide-image#n=${secretName}&s=${secretText}`
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>
